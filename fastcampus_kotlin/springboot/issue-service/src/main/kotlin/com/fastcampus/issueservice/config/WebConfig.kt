@@ -40,7 +40,7 @@ class WebConfig(
 
 @Component
 class AuthUserHandlerArgumentResolver(
-    @Value("\${auth.url}") val authUrl: String,
+    @Value("\${auth.url}") val authUrl: String, // application yml 에 있음
 ) : HandlerMethodArgumentResolver { // 스프링 제공 인터페이스 구현
 
     override fun supportsParameter(parameter: MethodParameter): Boolean =
@@ -56,6 +56,7 @@ class AuthUserHandlerArgumentResolver(
 
         val authHeader = webRequest.getHeader("Authorization") ?: throw UnauthorizedException()
 
+        // blocking (runBlocking)
         return runBlocking {
             WebClient.create()
                 .get()
