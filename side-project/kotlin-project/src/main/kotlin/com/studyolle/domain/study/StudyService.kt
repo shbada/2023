@@ -32,7 +32,7 @@ class StudyService(
     fun getStudy(studyIdx: Long): Study {
         val study: Optional<Study> = studyStore.getStudy(studyIdx)
 
-        if (study.isEmpty) {
+        if (!study.isPresent) {
             throw BadRequestException(ErrorMessage.NOT_EXIST_INFO)
         }
 
