@@ -1,4 +1,4 @@
-## 토비의 스프링부트
+## 토비의 스프링 부트 - 이해와 원리
 - 예제코드 : https://github.com/tobyspringboot/helloboot
 
 ## [수강일정]
