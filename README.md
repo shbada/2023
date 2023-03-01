@@ -3,7 +3,7 @@
 
 ## 리스트
 | 순번 | 진행상태 | Subject | 목표 | 제공 |
-|:-:|:-:|---|---|:-:|
+|:-:|:---:|---|---|:-:|
 | 01 | &#9745; 완료 | [fastcampus_kotlin](https://github.com/seohaem/2023/tree/main/fastcampus_kotlin) | 코틀린 기초 공부 및 Java to Kotlin 리팩토링 | <img width="200" alt="image" src="https://user-images.githubusercontent.com/87924260/222124851-a7750637-d065-46e7-b21e-90afa9e1b2bc.png"> |
 | 02 | 진행중  | [java-concurrency_book](https://github.com/seohaem/2023/tree/main/java-concurrency_book)  | 자바 병렬 프로그래밍  | <img width="100" alt="image" src="https://user-images.githubusercontent.com/87924260/222124365-0fc41656-4c60-449f-b21d-ae443f192d3b.png">  |  
 | 03 | &#9745; 완료  | [docker-springboot-sample](https://github.com/seohaem/2023/tree/main/docker-springboot-sample/kotlin-project)  | SpringBoot+Kotlin 프로젝트를 Docker로 띄어서 수행하기  | 개인학습 | 
