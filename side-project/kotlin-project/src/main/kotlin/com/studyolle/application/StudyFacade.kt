@@ -20,6 +20,7 @@ class StudyFacade(
     }
 
     fun findStudyWithMembersByPath(path: String): Study {
+        // null 일때 에러 발생
         return studyService.findStudyWithMembersByPath(path)
             ?: throw BadRequestException(ErrorMessage.NOT_EXIST_INFO)
     }

@@ -39,7 +39,6 @@ class StudyController(
 
     /**
      * 스터디 탈퇴
-     * TODO Entity 의존성 제거
      */
     @PostMapping("/study/{path}/leave")
     fun leaveStudy(@PathVariable path: String, @RequestBody leaveForm: StudyDto.LeaveForm): ResponseEntity<*> {

@@ -15,5 +15,4 @@ class AccountFacade(
     fun completeSignUp(email: String, token: String) {
         accountService.completeSignUp(email, token)
     }
-
 }
