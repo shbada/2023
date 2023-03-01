@@ -9,4 +9,4 @@
 | 03 | &#9745; 완료  | [docker-springboot-sample](https://github.com/seohaem/2023/tree/main/docker-springboot-sample/kotlin-project)  | SpringBoot+Kotlin 프로젝트를 Docker로 띄어서 수행하기  | 개인학습 | 
 | 04 | 진행중  | [toby_springboot](https://github.com/seohaem/2023/tree/main/toby_springboot)  | 스프링 부트 이해도 향상  | <img width="100" alt="image" src="https://user-images.githubusercontent.com/87924260/222124668-0f06ca71-742d-4820-a109-b290c25d7778.png"> | 
 | 05 | 진행중 | [budget-side-project](https://github.com/seohaem/2023/tree/main/budget-side-project/budget-api) | 개인 사이드 프로젝트 진행 | 개인학습  | 
-| 05 | &#9745; 저장소 | [docker-file](https://github.com/seohaem/2023/tree/main/docker-file) | docker 사용 파일 저장소 | 개인학습  | 
+| 06 | &#9745; 저장소 | [docker-file](https://github.com/seohaem/2023/tree/main/docker-file) | docker 사용 파일 저장소 | 개인학습  | 
