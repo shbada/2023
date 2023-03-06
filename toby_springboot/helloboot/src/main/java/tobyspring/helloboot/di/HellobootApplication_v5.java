@@ -6,7 +6,6 @@ import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import tobyspring.helloboot.di.SimpleHelloService;
 import tobyspring.helloboot.frontcontroller.HelloController;
 
 import javax.servlet.ServletException;
@@ -51,7 +50,7 @@ public class HellobootApplication_v5 {
 						/** 빈 조회 */
 						tobyspring.helloboot.frontcontroller.HelloController helloController = applicationContext.getBean(HelloController.class);
 
-						/** 매핑 */
+						/** 바인딩 */
 						String ret = helloController.hello(name); // name을 보내서 바인딩
 
 //						resp.setStatus(200); // default

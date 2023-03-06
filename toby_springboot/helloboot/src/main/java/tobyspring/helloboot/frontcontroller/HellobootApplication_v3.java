@@ -38,7 +38,7 @@ public class HellobootApplication_v3 {
 					if (req.getRequestURI().equals("/hello") && req.getMethod().equals(HttpMethod.GET.name())) {
 						String name = req.getParameter("name");
 
-						/** 매핑 */
+						/** 바인딩 */
 						String ret = helloController.hello(name); // name을 보내서 바인딩
 
 						resp.setStatus(200);
