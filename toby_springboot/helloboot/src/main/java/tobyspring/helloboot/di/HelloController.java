@@ -19,6 +19,13 @@ public class HelloController {
 //        SimpleHelloService helloService = new SimpleHelloService();
 
         // null 이라면 예외를 던진다.
-        return helloService.sayHello(Objects.requireNonNull(name));
+//        return helloService.sayHello(Objects.requireNonNull(name));
+
+        // null 체크 개선
+        if (name == null || name.trim().length() == 0) {
+            throw new IllegalArgumentException();
+        }
+
+        return helloService.sayHello(name);
     }
 }
