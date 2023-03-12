@@ -1,4 +1,4 @@
-package com.budget.api.domain
+package com.member.api.domain
 
 import javax.persistence.Column
 import javax.persistence.Entity
