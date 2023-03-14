@@ -1,2 +1,3 @@
 tobyspring.helloboot.step07_2_configannotation.autoconfig.DispatcherServletConfig
 tobyspring.helloboot.step07_2_configannotation.autoconfig.TomcatWebServerConfig
+tobyspring.helloboot.step08_conditional.autoconfig.JettyWebServerConfig
