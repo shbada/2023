@@ -1,3 +1,6 @@
 tobyspring.helloboot.step07_2_configannotation.autoconfig.DispatcherServletConfig
 tobyspring.helloboot.step07_2_configannotation.autoconfig.TomcatWebServerConfig
 tobyspring.helloboot.step08_conditional.autoconfig.JettyWebServerConfig
+tobyspring.helloboot.step13_value.PropertyPlaceholderConfig.java
+tobyspring.helloboot.step14_multiValue.ServerPropertiesConfig.java
+tobyspring.helloboot.step15_postProcessor.PropertyPostProcessorConfig.java
