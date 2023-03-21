@@ -16,6 +16,10 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven {
+		url 'https://repo.clojars.org'
+		name 'Clojars'
+	}
 }
 
 dependencies {
@@ -27,6 +31,12 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	/* step 17 */
+	implementation 'org.springframework:spring-jdbc'
+	runtimeOnly 'com.h2database:h2:2.1.214'
+	implementation 'hikari-cp:hikari-cp:3.0.1'
+
 }
 
 tasks.named('test') {

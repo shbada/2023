@@ -4,3 +4,4 @@ tobyspring.helloboot.step08_conditional.autoconfig.JettyWebServerConfig
 tobyspring.helloboot.step13_value.PropertyPlaceholderConfig.java
 tobyspring.helloboot.step14_multiValue.ServerPropertiesConfig.java
 tobyspring.helloboot.step15_postProcessor.PropertyPostProcessorConfig.java
+tobyspring.helloboot.step17_DataSource.DataSourceConfig.java
