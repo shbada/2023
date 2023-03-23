@@ -39,10 +39,10 @@ public class HellobootApplication_v2 {
 						resp.setStatus(200);
 						resp.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE);
 						resp.getWriter().println("Hello Servlet " + name);
-					} else if (req.getRequestURI().equals("/user")) {
+					} else if (req.getRequestURI().equals("/user")) { /** 추가 */
 						//
 					} else {
-						resp.setStatus(HttpStatus.NOT_FOUND.value());
+						resp.setStatus(HttpStatus.NOT_FOUND.value()); /** 추가 */
 					}
 				}
 			}).addMapping("/*"); // request url

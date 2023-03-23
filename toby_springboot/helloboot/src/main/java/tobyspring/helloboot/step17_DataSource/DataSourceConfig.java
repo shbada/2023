@@ -22,7 +22,7 @@ import java.sql.Driver;
 public class DataSourceConfig {
     @Bean
     @ConditionalMyOnClass("com.zaxxer.hikari.HikariDataSource")
-    @ConditionalOnMissingBean // 위 빈 등록이 안될경우
+    @ConditionalOnMissingBean // 아래 빈 등록이 안될경우
     DataSource hikariDataSource(MyDataSourceProperties sourceProperties) {
         HikariDataSource dataSource = new HikariDataSource();
 
@@ -35,7 +35,7 @@ public class DataSourceConfig {
     }
 
     @Bean
-    @ConditionalOnMissingBean // 아래 빈 등록이 안될경우
+    @ConditionalOnMissingBean // 위 빈 등록이 안될경우
     DataSource dataSource(MyDataSourceProperties sourceProperties) throws ClassNotFoundException {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass((Class<? extends Driver>) Class.forName(sourceProperties.getDriverClassName()));

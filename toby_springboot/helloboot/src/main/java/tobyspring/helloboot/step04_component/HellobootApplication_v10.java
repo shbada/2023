@@ -19,6 +19,7 @@ ServletWebServerFactory, DispatcherServlet 도 Bean 으로 등록하여 사용
 @ComponentScan // @Component 가 붙인 클래스를 찾아서, 빈으로 등록한다.
 public class HellobootApplication_v10 {
 	// factory method
+	/** 빈 등록하여 대체 */
 	@Bean
 	public ServletWebServerFactory servletWebServerFactory() {
 		return new TomcatServletWebServerFactory();

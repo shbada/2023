@@ -30,7 +30,7 @@ public class HellobootApplication_v6 {
 		WebServer webServer = serverFactory.getWebServer(servletContext -> {
 //			HelloController helloController = new HelloController();
 
-			// 매핑 정보를 알려주지 않았으니 이렇게만 설정하면 404 오류가 난다.
+			// 매핑 정보를 알려주지 않았으니 이렇게만 설정하면 404 오류가 난다. (@RequestMapping를 넣어야 찾을수있음)
 			servletContext.addServlet("dispatcherServlet",
 					new DispatcherServlet(applicationContext)
 			).addMapping("/*"); // request url

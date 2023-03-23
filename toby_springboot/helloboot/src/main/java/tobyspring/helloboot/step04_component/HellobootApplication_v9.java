@@ -16,7 +16,7 @@ import tobyspring.helloboot.step03_dispatcherservlet.HellobootApplication_v7;
 @Configuration // 구성 정보를 가지고있는 클래스임을 알려주자. Spring Container 이 Bean 어노테이션이 붙은 메서드가 있겠구나 라고 알수있다.
 @ComponentScan // @Component 가 붙인 클래스를 찾아서, 빈으로 등록한다.
 public class HellobootApplication_v9 {
-	// @Component 를 사용했으므로 @Bean 메서드 없이 빈 등록 가능
+	/** @Component 를 사용했으므로 @Bean 메서드 없이 빈 등록 가능 */
 	// factory method
 //	@Bean // Bean 임을 알려주자.
 //	public tobyspring.helloboot.dispatcherservlet.HelloController helloController(tobyspring.helloboot.dispatcherservlet.HelloService helloService) { // spring Container 에서 넣어주게 한다.
