@@ -9,5 +9,8 @@
 |2023/03/24|chapter01|https://github.com/seohaem/2023/tree/main/springboot-reactive/1-reactive|
 |-|chapter02. 스프링 부트를 활용한 데이터 엑세스|-|
 |2023/03/25|chapter02|https://github.com/seohaem/2023/tree/main/springboot-reactive/2-reactive|
+|2023/03/25|chapter02|https://github.com/seohaem/2023/tree/main/springboot-reactive/2b-reactive|
 |-|chapter03. 스프링 부트 개발자 도구|-|
 |2023/03/25|chapter03|https://github.com/seohaem/2023/tree/main/springboot-reactive/3-reactive|
+|-|chapter04. 스프링 부트 테스트|-|
+|2023/03/25|chapter04|https://github.com/seohaem/2023/tree/main/springboot-reactive/4-reactive|
