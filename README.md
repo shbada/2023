@@ -9,5 +9,5 @@
 | 03 | ~ing  | [java-concurrency_book](https://github.com/seohaem/2023/tree/main/java-concurrency_book)  | 자바 병렬 프로그래밍  | <img width="200" alt="image" src="https://user-images.githubusercontent.com/87924260/222124365-0fc41656-4c60-449f-b21d-ae443f192d3b.png">  |  
 | 04 | `완료`  | [docker-springboot-sample](https://github.com/seohaem/2023/tree/main/docker-springboot-sample/kotlin-project)  | SpringBoot+Kotlin 프로젝트를 Docker로 띄어서 수행하기  | 개인학습 | 
 | 05 | `완료`  | [toby_springboot](https://github.com/seohaem/2023/tree/main/toby_springboot)  | 스프링 부트 이해도 향상  | <img width="200" alt="image" src="https://user-images.githubusercontent.com/87924260/222124668-0f06ca71-742d-4820-a109-b290c25d7778.png"> | 
-| 06 | ~ing  | [springboot-reactive](hhttps://github.com/seohaem/2023/tree/main/springboot-reactive)  | SpringBoot + Reactive  | <img width="200" alt="image" src="https://user-images.githubusercontent.com/87924260/227526027-a5663f3e-7b67-414d-b1ba-d1a597b61ae2.png"> | 
+| 06 | `완료`  | [springboot-reactive](hhttps://github.com/seohaem/2023/tree/main/springboot-reactive)  | SpringBoot + Reactive  | <img width="200" alt="image" src="https://user-images.githubusercontent.com/87924260/227526027-a5663f3e-7b67-414d-b1ba-d1a597b61ae2.png"> | 
 
