@@ -1,7 +1,8 @@
 package me.whiteship.chapter01.item01;
 
+import me.whiteship.chapter01.item01.step02.Settings;
+
 import java.util.EnumSet;
-import java.util.Set;
 
 public class Product {
 

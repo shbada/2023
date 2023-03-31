@@ -1,6 +1,6 @@
-package me.whiteship.chapter01.item01;
+package me.whiteship.chapter01.item01.step01;
 
-import java.util.*;
+import me.whiteship.chapter01.item01.Product;
 
 public class Order {
 

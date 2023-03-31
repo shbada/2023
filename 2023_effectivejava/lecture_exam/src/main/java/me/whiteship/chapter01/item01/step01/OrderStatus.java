@@ -1,4 +1,4 @@
-package me.whiteship.chapter01.item01;
+package me.whiteship.chapter01.item01.step01;
 
 public enum OrderStatus {
 
