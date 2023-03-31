@@ -11,6 +11,10 @@
 |섹션 0. 과정 및 강의 내용 소개|-|-|
 |과정 소개|수강완료|2023/03/30|
 |섹션 1. DevOps와 CI/CD의 이해|-|-|
+|Cloud Native Application의 구성요소|수강완료|2023/03/31|
+|Cloud Native Application의 구성요소|수강완료|2023/03/31|
+|CI-CD 자동화 도구의 이해|수강완료|2023/03/31|
+|CI-CD Work flow|수강완료|2023/03/31|
 |섹션 2. Jenkins를 이용한 CI/CD 자동화 도구의 사용|-|-|
 |섹션 3. Jenkins + Infrastructure as Code 와의 연동|-|-|
 |섹션 4. Jenkins + Ansible + Kubernetes 와의 연동|-|-|
