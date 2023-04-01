@@ -2,6 +2,9 @@ package me.whiteship.chapter01.item01.step02;
 
 import me.whiteship.chapter01.item01.Difficulty;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 이 클래스의 인스턴스는 #getInstance()를 통해 사용한다.
  * @see #getInstance()
@@ -20,6 +23,7 @@ public class Settings {
      *
      * [통제해야 한다면?]
      * 1) 생성자를 private 로 변경하여 외부에서 호출할 수 없도록 한다.
+     * -> 상속 불가능
      */
     private Settings() {}
 
@@ -43,6 +47,10 @@ public class Settings {
 
     public static void main(String[] args) {
         Boolean.valueOf(false);
+
+        // 생성자, 정적페토리 메서드 모두 제공할 수도 있다.
+        List<String> list = new ArrayList<>();
+        List.of("a", "B");
     }
 
 }

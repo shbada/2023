@@ -1,5 +1,6 @@
 package me.whiteship.chapter01.item01;
 
+import me.whiteship.chapter01.item01.step03.HelloService;
 import me.whiteship.hello.ChineseHelloService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

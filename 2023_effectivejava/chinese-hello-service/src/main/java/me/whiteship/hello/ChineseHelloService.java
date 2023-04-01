@@ -1,6 +1,6 @@
 package me.whiteship.hello;
 
-import me.whiteship.chapter01.item01.HelloService;
+import me.whiteship.chapter01.item01.step03.HelloService;
 
 public class ChineseHelloService implements HelloService {
 

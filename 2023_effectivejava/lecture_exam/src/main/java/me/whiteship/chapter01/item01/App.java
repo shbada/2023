@@ -1,5 +1,6 @@
 package me.whiteship.chapter01.item01;
 
+import me.whiteship.chapter01.item01.step03.HelloService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
