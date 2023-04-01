@@ -1,4 +1,4 @@
-package me.whiteship.chapter01.item01;
+package me.whiteship.chapter01.item01.step05_interface;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -15,9 +15,11 @@ public class ListQuiz {
 
         System.out.println(numbers);
 
+        /* 내림차순 */
         Comparator<Integer> desc = (o1, o2) -> o2 - o1;
 
-        numbers.sort(desc.reversed());
+        /* 다시 오름차순 */
+        numbers.sort(desc.reversed()); // reverse() : default 메서드가 추가됨
 
         System.out.println(numbers);
     }

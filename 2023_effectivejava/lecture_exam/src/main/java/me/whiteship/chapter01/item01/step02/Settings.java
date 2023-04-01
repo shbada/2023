@@ -1,6 +1,6 @@
 package me.whiteship.chapter01.item01.step02;
 
-import me.whiteship.chapter01.item01.Difficulty;
+import me.whiteship.chapter01.item01.step04_enum.Difficulty;
 
 import java.util.ArrayList;
 import java.util.List;

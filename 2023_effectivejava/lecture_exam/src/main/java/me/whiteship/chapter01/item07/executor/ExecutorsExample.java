@@ -1,7 +1,5 @@
 package me.whiteship.chapter01.item07.executor;
 
-import me.whiteship.chapter01.item01.Product;
-
 import java.util.concurrent.*;
 
 public class ExecutorsExample {

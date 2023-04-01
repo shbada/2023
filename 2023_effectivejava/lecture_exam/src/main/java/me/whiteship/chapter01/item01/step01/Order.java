@@ -1,6 +1,6 @@
 package me.whiteship.chapter01.item01.step01;
 
-import me.whiteship.chapter01.item01.Product;
+import me.whiteship.chapter01.item01.step04_enum.Product;
 
 public class Order {
 
