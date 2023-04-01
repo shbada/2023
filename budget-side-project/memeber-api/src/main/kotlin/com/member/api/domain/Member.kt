@@ -1,21 +1,22 @@
 package com.member.api.domain
 
+import org.springframework.data.mongodb.core.mapping.Document
 import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
-@Entity
+@Document(collection = "member")
 class Member (
+) {
     @Id
-    @GeneratedValue
-    val id: Long?= null,
+    val id: String? = null
 
     /* 중복 불가능 */
-    @Column(unique = true)
-    var email: String,
+    var email: String = ""
 
-    var password: String,
-) {
+    var password: String = ""
 
+    constructor(email: String, password: String) : this() {
+        this.email = email
+        this.password = password
+    }
 }
