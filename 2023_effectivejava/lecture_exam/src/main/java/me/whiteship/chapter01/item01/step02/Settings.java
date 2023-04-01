@@ -5,6 +5,11 @@ import me.whiteship.chapter01.item01.Difficulty;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+javadoc
+mvc javadoc:javadoc
+-> target/site/apidocs/index.html
+ */
 /**
  * 이 클래스의 인스턴스는 #getInstance()를 통해 사용한다.
  * @see #getInstance()
