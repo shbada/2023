@@ -15,6 +15,10 @@
 |Cloud Native Application의 구성요소|수강완료|2023/03/31|
 |CI-CD 자동화 도구의 이해|수강완료|2023/03/31|
 |CI-CD Work flow|수강완료|2023/03/31|
+|Jenkins 소개|수강완료|2023/04/02|
+|Jenkins 설치 및 설정|수강완료|2023/04/02|
+|실습1-1) Docker 컨테이너로 Jenkins 설치하기|수강완료|2023/04/02|
+|실습1-2) 첫번째 Item(Project) 생성|수강완료|2023/04/02|
 |섹션 2. Jenkins를 이용한 CI/CD 자동화 도구의 사용|-|-|
 |섹션 3. Jenkins + Infrastructure as Code 와의 연동|-|-|
 |섹션 4. Jenkins + Ansible + Kubernetes 와의 연동|-|-|
