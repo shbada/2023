@@ -9,6 +9,10 @@ public class NutritionFacts {
     private final int sodium;       // (mg/1회 제공량)      선택
     private final int carbohydrate; // (g/1회 제공량)       선택
 
+    /**
+     * 많은 생성자
+     * - 점층적 생성자 패턴 (생성자 체이닝)
+     */
     public NutritionFacts(int servingSize, int servings) {
         this(servingSize, servings, 0);
     }
@@ -39,6 +43,7 @@ public class NutritionFacts {
     }
 
     public static void main(String[] args) {
+        // 생성자에 내가 어떤 파라미터 순서로 입력해야할지? (command+p 단축키 사용 가능)
         NutritionFacts cocaCola =
                 new NutritionFacts(10, 10);
     }

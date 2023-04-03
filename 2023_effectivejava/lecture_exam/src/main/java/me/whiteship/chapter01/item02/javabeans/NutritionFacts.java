@@ -42,7 +42,13 @@ public class NutritionFacts {
     }
 
     public static void main(String[] args) {
+        /* 필수값 셋팅은 안된채로 사용하게 될 수도 있다. - 불안정한 상태 */
         NutritionFacts cocaCola = new NutritionFacts();
+
+        // immutable : set()을 제공하지 않고, 생성자로만 셋팅되도록한다.
+        // set()을 제공해야할때는 이를 immutable 객체로 만들기 어렵다.
+
+        // 필수인 데이터를 set() 하기 전에 cocaCola 객체를 사용할 위험이 있음
         cocaCola.setServingSize(240);
         cocaCola.setServings(8);
 
