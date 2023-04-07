@@ -13,8 +13,29 @@ public abstract class Pizza {
     public enum Topping { HAM, MUSHROOM, ONION, PEPPER, SAUSAGE }
     final Set<Topping> toppings;
 
-    abstract static class Builder<T extends Builder<T>> {
+    /**
+     * Builder 자신의 하위 클래스만 담도록한다.
+     * 재귀적인 타입 제한
+     * @param <T>
+     */
+    abstract static class  Builder<T extends Builder<T>> {
         EnumSet<Topping> toppings = EnumSet.noneOf(Topping.class);
+
+        /**
+         * new NyPizza.Builder().build()
+         * Builder 는 Pizza의 Builder 이므로 Pizza의 build()가 호출된다.
+         * 그러므로 하위 타입을 리턴할 수 있도록 변경해야한다.
+         */
+//        public Builder<T> addTopping(Topping topping) {
+//            toppings.add(Objects.requireNonNull(topping));
+//            return this;
+//        }
+
+        /**
+         * Builder의 하위타입을 리턴할 수 있게한다.
+         * @param topping
+         * @return
+         */
         public T addTopping(Topping topping) {
             toppings.add(Objects.requireNonNull(topping));
             return self();

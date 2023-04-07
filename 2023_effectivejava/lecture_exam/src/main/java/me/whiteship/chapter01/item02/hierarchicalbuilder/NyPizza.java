@@ -7,6 +7,11 @@ public class NyPizza extends Pizza {
     public enum Size { SMALL, MEDIUM, LARGE }
     private final Size size;
 
+    /**
+     * NyPizza.Builder 타입을 넣는것
+     * Builder : <NyPizza.Builder> 타입
+     * Builder : Pizza.Builder 의 하위 클래스
+     */
     public static class Builder extends Pizza.Builder<NyPizza.Builder> {
         private final Size size;
 
