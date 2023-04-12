@@ -13,9 +13,9 @@ public class AppConfig {
      * 서비스를 등록한다.
      * @return
      */
-    @Bean
-    public HelloService helloService() {
-        return new ChineseHelloService();
-    }
+//    @Bean
+//    public HelloService helloService() {
+//        return new ChineseHelloService();
+//    }
 
 }

@@ -1,5 +1,10 @@
 package me.whiteship.chapter01.item02.javabeans;
 
+/**
+ * 자바빈(JavaBean)
+ * - java.beans 패키지 안에 있는 모든것
+ * - 규약을 따라야함 (아규먼트 없는 기본 생성자, getter/setter 메서드 규약, Serializable 인터페이스 규약)
+ */
 // 코드 2-2 자바빈즈 패턴 - 일관성이 깨지고, 불변으로 만들 수 없다. (16쪽)
 public class NutritionFacts {
     // 필드 (기본값이 있다면) 기본값으로 초기화된다.

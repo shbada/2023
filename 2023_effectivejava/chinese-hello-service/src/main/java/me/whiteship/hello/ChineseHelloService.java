@@ -1,10 +1,11 @@
 package me.whiteship.hello;
 
-import me.whiteship.chapter01.item01.step03.HelloService;
+//import me.whiteship.chapter01.item01.step03.HelloService;
 
-public class ChineseHelloService implements HelloService {
+public class ChineseHelloService {
+//public class ChineseHelloService implements HelloService {
 
-    @Override
+//    @Override
     public String hello() {
         return "Ni Hao";
     }
