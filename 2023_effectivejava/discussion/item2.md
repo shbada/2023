@@ -87,7 +87,7 @@ public class VarargsHeapPollutionExample1 {
 ```java
 List<Integer> intList = Arrays.asList(42);
 ```
-![img.png](img.png)
+![img.png](image/img_3.png)
 
 > [2] 가변인수로 받은 stringLists를 Object 타입 배열에 할당
 - 가변인수는 List<String>[] stringLists 이므로 Object[]에 할당할 수 있다.
@@ -95,7 +95,7 @@ List<Integer> intList = Arrays.asList(42);
 ```java
 Object[] objects = stringLists;
 ```
-![img_1.png](img_1.png)
+![img_1.png](image/img_1.png)
 
 > [3] object의 0번째 원소에 intList 삽입
 - 제네릭은 런타임 시 타입정보가 소거된다. 그렇기 때문에, 타입이 다른 List<Integer> intList의 할당이 가능하다.
@@ -103,5 +103,5 @@ Object[] objects = stringLists;
 ```java
 objects[0] = intList; // 힙 오염 발생
 ```
-![img_2.png](img_2.png)
+![img_2.png](image/img_2.png)
 
