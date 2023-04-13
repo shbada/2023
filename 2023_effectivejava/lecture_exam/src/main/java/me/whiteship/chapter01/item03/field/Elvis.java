@@ -11,6 +11,9 @@ public class Elvis implements IElvis, Serializable {
     public static final Elvis INSTANCE = new Elvis();
     private static boolean created;
 
+    /**
+     * 해당 클래스에서만 호출 가능
+     */
     private Elvis() {
         if (created) {
             throw new UnsupportedOperationException("can't be created by constructor.");

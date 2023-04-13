@@ -1,5 +1,8 @@
 package me.whiteship.chapter01.item03.field;
 
+/**
+ * Elvis의 클라이언트 코드 - 테스트하기 어렵다?
+ */
 public class Concert {
 
     private boolean lightsOn;
@@ -15,6 +18,7 @@ public class Concert {
     public void perform() {
         mainStateOpen = true;
         lightsOn = true;
+
         elvis.sing();
     }
 
