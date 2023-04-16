@@ -2,7 +2,7 @@ package me.whiteship.chapter01.item03.enumtype;
 
 // 열거 타입 방식의 싱글턴 - 바람직한 방법 (25쪽)
 public enum Elvis {
-    INSTANCE;
+    INSTANCE; // 태생적으로 new 인스턴스()해서 생성할 수 없다. (리플렉션에서도 리플렉션 내부에서 막아놨다.)
 
     public void leaveTheBuilding() {
         System.out.println("기다려 자기야, 지금 나갈께!");

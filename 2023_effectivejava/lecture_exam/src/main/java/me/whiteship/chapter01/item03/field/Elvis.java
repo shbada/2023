@@ -15,6 +15,8 @@ public class Elvis implements IElvis, Serializable {
      * 해당 클래스에서만 호출 가능
      */
     private Elvis() {
+        // 생성이 된 경우, 예외처리
+        // 코드 간결함이 깨진다.
         if (created) {
             throw new UnsupportedOperationException("can't be created by constructor.");
         }
@@ -36,6 +38,11 @@ public class Elvis implements IElvis, Serializable {
         elvis.leaveTheBuilding();
     }
 
+    /**
+     * 역직렬화시 객체 생성때 호출된다.
+     * 문법적으로 Override 는 아니지만, @Override 느낌이다.
+     * @return
+     */
     private Object readResolve() {
         return INSTANCE;
     }

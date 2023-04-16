@@ -1,7 +1,7 @@
 package me.whiteship.chapter01.item01.step07_reflection;
 
 import me.whiteship.chapter01.item01.step03.HelloService;
-import me.whiteship.hello.ChineseHelloService;
+//import me.whiteship.hello.ChineseHelloService;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
