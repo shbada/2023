@@ -3,9 +3,14 @@ package me.whiteship.chapter01.item03.serialization;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+/**
+ * Serializable 인터페이스를 선언해줘야 직렬화/역직렬화가 가능하다.
+ */
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    public static String staticName;
 
     private String isbn;
 

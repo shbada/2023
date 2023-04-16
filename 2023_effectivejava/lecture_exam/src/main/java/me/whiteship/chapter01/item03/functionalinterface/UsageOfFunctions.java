@@ -14,8 +14,11 @@ public class UsageOfFunctions {
         dates.add(LocalDate.of(2013, 1, 28));
 
         List<Integer> before2000 = dates.stream()
+                // 데이터를 걸러내므로 Predicate
                 .filter(d -> d.isBefore(LocalDate.of(2000, 1, 1)))
+                // Function
                 .map(LocalDate::getYear)
+                // Collector
                 .collect(Collectors.toList());
     }
 }
