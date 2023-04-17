@@ -5,7 +5,7 @@
 
 ### 2) 자바 CheckedException vs UnCheckedException
 > 강의에서 위 차이를 공부할때 트랜잭션 롤백 가능, 불가능은 맞지 않은 얘기라고 했다. 그 이유를 찾아보자.
-![img.png](image/img.png)
+![img.png](image/item2/img.png)
 
 위 표 내용은 잘못됬다. 트랜잭션에 UnCheckedException 예외에서는 롤백이 되고, CheckedException에서는 롤백이 안된다라는 규칙은 존재하지 않는다.
 트랜잭션은 DB 트랜잭션 등 다양한 트랜잭션 종류가 있으므로 위 내용으로 트랜잭션을 일반화할 수 없다.
@@ -87,7 +87,7 @@ public class VarargsHeapPollutionExample1 {
 ```java
 List<Integer> intList = Arrays.asList(42);
 ```
-![img.png](image/img_3.png)
+![img.png](image/item2/img_3.png)
 
 > [2] 가변인수로 받은 stringLists를 Object 타입 배열에 할당
 - 가변인수는 List<String>[] stringLists 이므로 Object[]에 할당할 수 있다.
@@ -95,7 +95,7 @@ List<Integer> intList = Arrays.asList(42);
 ```java
 Object[] objects = stringLists;
 ```
-![img_1.png](image/img_1.png)
+![img_1.png](image/item2/img_1.png)
 
 > [3] object의 0번째 원소에 intList 삽입
 - 제네릭은 런타임 시 타입정보가 소거된다. 그렇기 때문에, 타입이 다른 List<Integer> intList의 할당이 가능하다.
@@ -103,5 +103,5 @@ Object[] objects = stringLists;
 ```java
 objects[0] = intList; // 힙 오염 발생
 ```
-![img_2.png](image/img_2.png)
+![img_2.png](image/item2/img_2.png)
 
