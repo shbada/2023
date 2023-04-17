@@ -396,11 +396,14 @@ CallSite 객체는 이후에 런타임 시점에 람다 표현식을 호출할 �
 
 #### INVOKEDYNAMIC 정리
 1) bootstrap 메서드 호출
+
 ![img.png](image/item3/img.png)
 
 2) CallSite 객체 반환받는다.
+
 ![img_1.png](image/item3/img_1.png)
 
 3) CallSite 객체로 어떤 메서드를 실행할지 결정한다.
+
 ![img_2.png](image/item3/img_2.png)
 
