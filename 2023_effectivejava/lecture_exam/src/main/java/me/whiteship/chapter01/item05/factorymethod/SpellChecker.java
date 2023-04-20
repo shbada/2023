@@ -4,10 +4,15 @@ import me.whiteship.chapter01.item05.Dictionary;
 
 import java.util.List;
 
+/**
+ * 클라이언트의 수정이 없다!
+ */
 public class SpellChecker {
 
     private Dictionary dictionary;
 
+
+    // Factory 를 통해서 Dictionary 객체를 얻는다.
     public SpellChecker(DictionaryFactory dictionaryFactory) {
         this.dictionary = dictionaryFactory.getDictionary();
     }

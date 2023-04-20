@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-public class DefaultDictionary implements Dictionary{
+public class DefaultDictionary implements Dictionary {
 
     @Override
     public boolean contains(String word) {

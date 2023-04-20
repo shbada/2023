@@ -8,6 +8,7 @@ class SpellCheckerTest {
 
     @Test
     void isValid() {
+        // SpellChecker의 dictionary 를 매번 생성한다.
         assertTrue(SpellChecker.isValid("test"));
     }
 
