@@ -1,8 +1,11 @@
 package me.whiteship.chapter01.item06;
 
+/**
+ * 오토박싱, 언박싱
+ */
 public class Sum {
     private static long sum() {
-        // TODO Long을 long으로 변경하여 실행해 보세요.
+        // Long을 long으로 변경하여 실행해 보세요.
         Long sum = 0L;
         for (long i = 0; i <= Integer.MAX_VALUE; i++)
             sum += i;
