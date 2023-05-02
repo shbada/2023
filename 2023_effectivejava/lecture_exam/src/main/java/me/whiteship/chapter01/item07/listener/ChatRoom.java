@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class ChatRoom {
 
-    private List<WeakReference<User>> users;
+    private List<WeakReference<User>> users; // 이렇게 쓰면 안된다. 올바른 WeakReference 사용법이 아니다.
 
     public ChatRoom() {
         this.users = new ArrayList<>();

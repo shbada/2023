@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 // 코드 7-1 메모리 누수가 일어나는 위치는 어디인가? (36쪽)
 public class Stack {
-    private Object[] elements;
+    private Object[] elements; // 데이터를 쌓아놓는 경우, 언제 참조해제를 해야하는가?를 염두해야한다.
     private int size = 0;
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
