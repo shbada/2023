@@ -17,3 +17,4 @@
 | Chapter 11.Context                        | 완료     | 2023/04/29 | https://devfunny.tistory.com/916 |
 | Chapter 12.debugging                      | 완료     | 2023/04/30 | https://devfunny.tistory.com/917 |
 | Chapter 13.Testing                        | 완료     | 2023/05/01 | -                                |
+| Chapter 14.Operators                      | 완료     | 2023/05/02 | -                                |
