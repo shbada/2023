@@ -1,0 +1,6 @@
+com/section4/annotation/MagicMojaProcessor.java
+# 프로세스를 등록하는 과정
+# mvn clean install를 바로 하면 MagicMojaProcessor 클래스 파일이 없어서 오류 발생
+# 임시로 주석 -> mvn clean install -> MagicMojaProcessor 클래스 파일 생성 완료
+# -> 주석 해제 -> mvn install (clean을 하지 않아야한다. 기존 class 파일들을 사용하기 때문)
+# AutoService를 사용하면 이런 방식을 대체할 수 있다.
