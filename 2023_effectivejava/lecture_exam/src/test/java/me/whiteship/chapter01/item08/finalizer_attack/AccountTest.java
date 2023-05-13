@@ -18,10 +18,11 @@ class AccountTest {
         try {
             account = new BrokenAccount("푸틴");
         } catch (Exception exception) {
+            // 예외를 잡은 다음에 코드를 계속 진행함
             System.out.println("이러면???");
         }
 
-        System.gc();
+        System.gc(); // gc 발생
         Thread.sleep(3000L);
     }
 

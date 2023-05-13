@@ -18,8 +18,14 @@ public class App {
         int i = 0;
         while(true) {
             i++;
-            new FinalizerIsBad();
+            // gc 대상 객체가 계속 만들어짐
+            new FinalizerIsBad(); // 이 객체를 계속 만든다.
 
+            // 100만개 만들어졌을때
+            /*
+            final인 java.lang.ref.Finalizer 클래스 안에 있는 ReferenceQueue 안에 들어간다.
+            gc 대상이 되면 finalize()를 실행해주는게 위의 큐에 들어간다.
+             */
             if ((i % 1_000_000) == 0) {
                 Class<?> finalizerClass = Class.forName("java.lang.ref.Finalizer");
                 Field queueStaticField = finalizerClass.getDeclaredField("queue");
@@ -28,6 +34,7 @@ public class App {
 
                 Field queueLengthField = ReferenceQueue.class.getDeclaredField("queueLength");
                 queueLengthField.setAccessible(true);
+                // queue에 얼마나 많은 오브젝트가 들어가는지 확인하는 예제
                 long queueLength = (long) queueLengthField.get(referenceQueue);
                 System.out.format("There are %d references in the queue%n", queueLength);
             }
