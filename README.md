@@ -17,6 +17,8 @@
 | 07 | <img src="https://img.shields.io/badge/-study-green"/>  | [이펙티브 자바 완벽 공략 1부](https://github.com/seohaebada/2023/tree/main/2023_effectivejava)  | 이펙티브 자바 복습 (with 강의)  | <img width="200" alt="image" src="https://user-images.githubusercontent.com/87924260/228549353-7ca2fa9e-1857-45e6-9359-b0af57140b48.png"> | 
 | 08 | <img src="https://img.shields.io/badge/-in%20progress-red"/>  | [Jenkins를 이용한 CI/CD Pipeline 구축](https://github.com/seohaebada/2023/tree/main/jenkins_lecture)  | Jenkins 공부  | <img width="300" alt="image" src="https://user-images.githubusercontent.com/87924260/228829558-7531c86a-3cc6-406a-bc7c-b1c91e54e22c.png"> |
 | 09 | <img src="https://img.shields.io/badge/-completed-blue"/>  | [스프링으로 시작하는 리액티브 프로그래밍](https://github.com/seohaebada/2023/tree/main/Spring-Reactive-Book)  | 리액티브 프로그래밍 공부  | <img width="200" alt="image" src="https://user-images.githubusercontent.com/87924260/235092071-d7aced2c-72c6-4364-99bd-f89eb721b635.png"> | 
+| 10 | <img src="https://img.shields.io/badge/-completed-blue"/>  | [더 자바, 코드를 조작하는 다양한 방법](https://github.com/seohaebada/2023/tree/main/theJavaCode)  | 자바 기초 공부  | <img width="582" alt="image" src="https://github.com/seohaebada/2023/assets/87924260/d4cc23a8-0dc0-448e-b225-3b5c4b1b1383"> | 
+
 
 
 
