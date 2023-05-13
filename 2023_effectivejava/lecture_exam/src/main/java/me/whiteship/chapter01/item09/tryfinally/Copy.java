@@ -19,7 +19,9 @@ public class Copy {
                 out.close();
             }
         } finally {
+            // 만약 아래처럼 두줄로 둔다면 in.close()에서 오류나면 out.close() 수행안됨
             in.close();
+//            out.close();
         }
     }
 

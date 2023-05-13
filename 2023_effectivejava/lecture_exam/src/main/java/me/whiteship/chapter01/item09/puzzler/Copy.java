@@ -19,6 +19,8 @@ public class Copy {
                 out.close();
             } catch (IOException e) {
                 // TODO 이렇게 하면 되는거 아닌가?
+                // IOException 가 아니라면? 그대로 오류 발생하면서 종료
+                // finally는 무조건 수행되므로 이렇게 하면 별로다
             }
 
             try {
