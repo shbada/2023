@@ -17,10 +17,10 @@ public class BrokenAccount extends Account {
      * Account 에서 final 추가한 오버라이딩 finalize() 메서드가 있다면 재정의 불가
      * @throws Throwable
      */
-//    @Override
-//    protected void finalize() throws Throwable {
-//        // 원하는 금액을 원하는 사람한테 보냄
-//        this.transfer(BigDecimal.valueOf(100), "keesun");
-//    }
+    @Override
+    protected void finalize() throws Throwable {
+        // 원하는 금액을 원하는 사람한테 보냄
+        this.transfer(BigDecimal.valueOf(100), "keesun");
+    }
 }
 

@@ -23,7 +23,7 @@ public class Account {
      * 해결방안) 아무것도 하지 않는 finalize()를 선언해라 (fianl을 붙혀라!)
      * @throws Throwable
      */
-    @Override
-    protected final void finalize() throws Throwable {
-    }
+//    @Override
+//    protected final void finalize() throws Throwable {
+//    }
 }
