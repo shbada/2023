@@ -8,7 +8,11 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.time.Duration;
 
@@ -17,15 +21,23 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 import static org.junit.jupiter.api.Assumptions.assumingThat;
 
+/*
+각 테스트를 실행할때마다 StudyTest 인스턴스를 생성한다.
+ */
 /**
  * Springboot 2.2 부터 spring-boot-starter 에 junit5 의존성이 적용되어있다.
  */
 // _를 공백으로 변경해준다.
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class) // 모든 테스트에 적용
+// @BeforeAll, @ AfterAll이 원래 전략에선 static이여야 했는데, 위 전략으로 변경하면 static 아니여도 된다.
+@TestInstance(TestInstance.Lifecycle.PER_CLASS) // 클래스마다 인스턴스 생성으로 전략 변경
+// 메서드 순서 지정하기 (기존 셋팅은 메서드 선언 순서지만, 이 순서에 의존하면 안된다. junit 내부 구현 변경으로 언제든 변경될 수 있다.)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class) // 전략선택
 class StudyTest {
     // junit5 부터는 public 생략 가능
     @Test
     @DisplayName("스터디 만들기") // 테스트 이름 지정
+    @Order(1) // 낮은 값일수록 더 높은 우선순위를 갖는다.
 //    @Disabled //  전체 테스트 실행시 제외된다.
     void create() {
         Study study = new Study(-30);
