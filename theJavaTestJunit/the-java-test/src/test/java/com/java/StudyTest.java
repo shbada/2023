@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
 import java.time.Duration;
 
@@ -27,6 +29,8 @@ import static org.junit.jupiter.api.Assumptions.assumingThat;
 /**
  * Springboot 2.2 부터 spring-boot-starter 에 junit5 의존성이 적용되어있다.
  */
+// 확장팩
+//@ExtendWith(FindSlowTestExtension.class) // 생성자를 받을때 아래 @RegisterExtension 사용
 // _를 공백으로 변경해준다.
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class) // 모든 테스트에 적용
 // @BeforeAll, @ AfterAll이 원래 전략에선 static이여야 했는데, 위 전략으로 변경하면 static 아니여도 된다.
@@ -34,6 +38,10 @@ import static org.junit.jupiter.api.Assumptions.assumingThat;
 // 메서드 순서 지정하기 (기존 셋팅은 메서드 선언 순서지만, 이 순서에 의존하면 안된다. junit 내부 구현 변경으로 언제든 변경될 수 있다.)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class) // 전략선택
 class StudyTest {
+
+    @RegisterExtension
+    static FindSlowTestExtension findSlowTestExtension = new FindSlowTestExtension(1000L);
+
     // junit5 부터는 public 생략 가능
     @Test
     @DisplayName("스터디 만들기") // 테스트 이름 지정
