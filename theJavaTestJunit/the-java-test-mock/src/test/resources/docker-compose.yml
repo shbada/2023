@@ -1,10 +1,10 @@
 version: "3"
 
 services:
-  study-db:
+  study-db: # 서비스이름
     image: postgres
     ports:
-      - 5432
+      - 5432 # 랜덤 포트로 매핑됨
     environment:
       POSTGRES_PASSWORD: study
       POSTGRES_USER: study

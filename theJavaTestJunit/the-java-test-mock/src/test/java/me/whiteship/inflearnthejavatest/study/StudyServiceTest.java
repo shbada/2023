@@ -35,8 +35,9 @@ import static org.mockito.Mockito.verify;
 @SpringBootTest
 @ExtendWith(MockitoExtension.class) // @Mock 어노테이션을 적용해줄 Extension
 @ActiveProfiles("test")
-@Testcontainers
+@Testcontainers /* testContainers */
 @Slf4j
+// 우리가 구현한 ApplicationContextInitializer 구현체를 지정한다.
 @ContextConfiguration(initializers = StudyServiceTest.ContainerPropertyInitializer.class)
 class StudyServiceTest {
 
@@ -44,11 +45,17 @@ class StudyServiceTest {
 
     @Autowired StudyRepository studyRepository;
 
+    // postgres 가 띄어져있는 동적 port를 알아낼 수 있다.
     @Value("${container.port}") int port;
 
+    // static 이므로 모든 테스트에서 공유
+    // static이 아니면 각 테스트마다 컨테이너를 띄었다가 삭제했다가 반복 +
     @Container
     static DockerComposeContainer composeContainer =
+            // docker-compose.yml 파일 위치
             new DockerComposeContainer(new File("src/test/resources/docker-compose.yml"))
+                    // 5432 port를 exposed 하겠다
+                    // port 정보를 Spring Environment 에 저장되고, 이를 꺼내서 사용할 수 있다.
             .withExposedService("study-db", 5432);
 
     @Test
@@ -103,11 +110,20 @@ class StudyServiceTest {
         then(memberService).should().notify(study);
     }
 
+    /**
+     * ApplicationContextInitializer (springboot가 아닌, spring core 가 제공)
+     * ApplicationContextInitializer 구현체를 생성해서 프로퍼티 추가
+     *
+     *
+     */
     static class ContainerPropertyInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
         @Override
         public void initialize(ConfigurableApplicationContext context) {
-            TestPropertyValues.of("container.port=" + composeContainer.getServicePort("study-db", 5432))
+            // TestPropertyValues 정의
+            // key=value 형식의 문자열
+            // context의 Environment 에 적용하겠다 라는 의미
+            TestPropertyValues.of("container.port=" + composeContainer.getServicePort("study-db", 5432)) // 5432 에 매핑된 port
                     .applyTo(context.getEnvironment());
         }
     }
