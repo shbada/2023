@@ -1,6 +1,6 @@
 package me.whiteship.chapter02.item10.autovalue;
 
-import com.google.auto.value.AutoValue;
+import com.google.auto.value.AutoValue; // maven 추가
 
 /**
  * AutoValue 참고

@@ -17,6 +17,8 @@ public class SmellPoint extends Point {
 
         // o가 일반 Point면 색상을 무시하고 비교한다.
         if (!(o instanceof SmellPoint))
+            // 만약에 o Col가rPoint type이라면?
+            // ColorPoint의 equals() 호출
             return o.equals(this);
 
         // o가 ColorPoint면 색상까지 비교한다.

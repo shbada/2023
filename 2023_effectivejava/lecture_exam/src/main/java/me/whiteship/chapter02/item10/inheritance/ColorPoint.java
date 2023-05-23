@@ -25,7 +25,9 @@ public class ColorPoint extends Point {
             return false;
 
         // o가 일반 Point면 색상을 무시하고 비교한다.
+        // 위험한 코드다 : stackOverFlow
         if (!(o instanceof ColorPoint))
+            // 만약 SmellPoint 라면? 또 SmellPoint 호출 
             return o.equals(this);
 
         // o가 ColorPoint면 색상까지 비교한다.
@@ -33,10 +35,10 @@ public class ColorPoint extends Point {
     }
 
     public static void main(String[] args) {
-        // 첫 번째 equals 메서드(코드 10-2)는 대칭성을 위배한다. (57쪽)
+//        // 첫 번째 equals 메서드(코드 10-2)는 대칭성을 위배한다. (57쪽)
 //        Point p = new Point(1, 2);
 //        ColorPoint cp = new ColorPoint(1, 2, Color.RED);
-//        System.out.println(p.equals(cp) + " " + cp.equals(p));
+//        System.out.println(p.equals(cp) + " " + cp.equals(p)); // true + " " + false
 
         // 두 번째 equals 메서드(코드 10-3)는 추이성을 위배한다. (57쪽)
         ColorPoint p1 = new ColorPoint(1, 2, Color.RED);
