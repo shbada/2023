@@ -42,3 +42,10 @@ single field, multi field, array field 등의 인덱스를 모두 지원함으�
 
 - 몽고DB는 collection이 없어도 insert 하면 새로 생성이 된다.
 - _id를 지정해서 넣지 않으면 자동생성된다. 
+
+### insertMany()
+- ordered
+  - false : 오류 발생시 그 다음 데이터 진행
+  - true : 오류 발생시 그 이후 데이터는 진행하지 않음 
+
+-- 1시간 21분
