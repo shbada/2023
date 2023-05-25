@@ -3,7 +3,7 @@
 ### 1) 포스팅 정리
 [아이템 10. equals는 일반 규약을 지켜 재정의하라](https://devfunny.tistory.com/923)
 
-### String 클래스의 equals()
+### 2) String 클래스의 equals()
 ```
 public boolean equals(Object anObject) {
     if (this == anObject) {
@@ -35,13 +35,13 @@ if (anObject instanceof String) {
 }
 ```
 
-## StackOverflowError
+## 3) StackOverflowError
 StackOverflowError 는 응용 프로그램이 클래스 간에 순환 관계 를 갖도록 설계되었을 때도 발생할 수 있다.
 이는 우리가 스프링에서 사용하는 생성자 주입이 필드 주입보다 더 좋은 이유 중에 하나였던,
 순환참조를 방지할 수 있다. 라는 점도 StackOverflowError를 방지할 수 있다고 생각할 수 있겠다.
 
 
-## instanceof  vs getClass()
+## 4) instanceof  vs getClass()
 ```
 class Animal { }
 class Dog extends Animal { }
