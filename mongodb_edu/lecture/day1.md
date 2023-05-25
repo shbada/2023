@@ -49,3 +49,11 @@ single field, multi field, array field 등의 인덱스를 모두 지원함으�
   - true : 오류 발생시 그 이후 데이터는 진행하지 않음 
 
 -- 1시간 21분
+
+
+## query 모음
+- https://github.com/seohaebada/2023/blob/main/mongodb_query/query/001_compass_%EC%B5%9C%EC%B4%88.txt
+- https://github.com/seohaebada/2023/blob/main/mongodb_query/query/002_CRUD.txt
+- https://github.com/seohaebada/2023/blob/main/mongodb_query/query/003_QuerySyntax.txt
+- https://github.com/seohaebada/2023/blob/main/mongodb_query/query/004_Updating.txt
+- https://github.com/seohaebada/2023/blob/main/mongodb_query/query/005_UpdatingArrays.txt
