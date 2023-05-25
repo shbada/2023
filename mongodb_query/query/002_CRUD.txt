@@ -49,9 +49,47 @@ db.customers.insertOne({ _id : "ann@gmail.com", name: "Ann", orders: [], spend: 
 
 db.customers.findOne({ name: "Ann" })
 db.customers.findOne({ name:"Ann" }, {name: 1, spend: 1}) -- name, spend 필드만 조회하겠다
-db.customers.findOne({ name:"Ann" }, {name: 0, orders:0})
-db.customers.findOne({ name:"Ann" },{name: 0, orders:1})
+db.customers.findOne({ name:"Ann" }, {name: 0, orders:0}) -- 2개 필드 제외하고 모두 출력
+db.customers.findOne({ name:"Ann" },{name: 0, orders:1}) -- or 조건은 성립안됨.
 -- MongoServerError: Cannot do inclusion on field orders in exclusion projection
-db.customers.findOne({ name:"Ann" },{_id: 0, name:1})
+-- or 조건은 성립 안됨 (_id 제외)
+db.customers.findOne({ name:"Ann" },{_id: 0, name:1}) -- _id 안보고 name만 본다.
+db.customers.findOne({ name:"Ann" },{_id: 0, name:1, orders:1}) -- _id 제외
+db.customers.findOne({ name:"Ann" },{_id: 1, name:0, orders:0}) -- _id 제외
+
+for(let x=0;x<200;x++) { db.taxis.insertOne({plate:x})}
+
+db.taxis.find({})
+-- 결과중 Type "it" for more 나오면
+
+it -- no cursor이 나올때까지
+
+db.taxis.find({plate:5})
+
+-- using cursor
+let mycursor = db.taxis.find({}) // No Output
+
+while (mycursor.hasNext()) {
+    let doc = mycursor.next();
+    printjson(doc)
+}
+
+mycursor = db.taxis.find({}) // No Output
+mycursor.forEach( doc => { printjson(doc) })
+-- This example does nothing - it does not even contact the server!
+for(let x=0;x<100;x++) {
+    let c = db.taxis.find({})
+}
+
+-- skip, limit, count
+for(let x=0;x<200;x++) { db.taxis.insertOne({plate:x})}
+
+db.taxis.find({}).limit(5)
+
+-- Type "it" for more
+db.taxis.find({}).skip(8).limit(2)
+
+db.taxis.find({}).count()
+
 
 
