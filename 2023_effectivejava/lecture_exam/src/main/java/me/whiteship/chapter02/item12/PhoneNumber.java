@@ -27,12 +27,20 @@ public final class PhoneNumber {
      * 전화번호의 각 부분의 값이 너무 작아서 자릿수를 채울 수 없다면,
      * 앞에서부터 0으로 채워나간다. 예컨대 가입자 번호가 123이라면
      * 전화번호의 마지막 네 문자는 "0123"이 된다.
+     *
+     * 경우에 따라(이렇게 포맷이 필요한 경우 등) AutoValue, 롬복, IDE를 사용하지 않는게 적절할 수도 있다.
      */
     @Override public String toString() {
+        // 외부에 노출되는 공개 정보 (toString 에는 외부에 공개할 수 있는 정보만 존재해야한다.)
         return String.format("%03d-%03d-%04d",
                 areaCode, prefix, lineNum);
     }
 
+    /**
+     * 정적 팩토리 메서드
+     * @param phoneNumberString
+     * @return
+     */
     public static PhoneNumber of(String phoneNumberString) {
         String[] split = phoneNumberString.split("-");
         PhoneNumber phoneNumber = new PhoneNumber(
