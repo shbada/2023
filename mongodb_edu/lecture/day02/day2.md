@@ -100,3 +100,17 @@ sample_airbnb
   - 인덱스가 커질수록 전체적인 캐시 성능이 떨어질 수 있음 
 
 -- 48분
+
+#### Index Prefix Compression
+- 어떤 text 필드에 대해서 인덱스가 걸려있을때
+```
+fieldA (index 있어서 정렬되어있겠다)
+------ 
+each      each=>l (표현)
+each1     each=>l1
+eachaa    each=>laa
+eachbb    each=>lbb -> 이런식으로 인코딩된 형태로 보이게되면서 size가 줄어든다.
+eachcc
+```
+- Prefix Compression으로 최적의 size를 유지하고자한다.
+
