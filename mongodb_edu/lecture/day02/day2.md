@@ -51,7 +51,7 @@ number_of_reviews_1
 - executionTimeMillis : 쿼리 수행 시간
 - totalKeysExamined : index key를 몇번 excess 했는지 
 - totalDocsExamined : 실제 풀스캔에서 excess document 건수
-- ![img.png](../image/day2/img.png)
+- ![img.png](../../image/day2/img.png)
   - 1. "IXSCAN" 인덱스 스캔 수행 후 11건을 다음단계로 넘김 (_id값)
   - 2. "FETCH" 에서 11건의 _id 값을 받고, 여기서 _id 기준으로 실제 document를 끄집어와서 (BSON) 얘를 리턴 (advanced:11 이므로 다음단계에도 11건 전달)
 4) "allPlansExecution": Runs all candidate plans and gathers statistics.
@@ -82,3 +82,21 @@ sample_airbnb
 - stats() : 해당 콜렉션의 관리되는 데이터들이 보인다. (ns: namespace (db명.collection명)) 
 
 -- 34분
+
+#### Hashed Indexes
+- 균등 분배가 필요 -> hash Index 사용
+- 원본 키가 너무 크면 hash Index 사용해서 index size를 줄일 수 있음
+
+#### Indexs and Performance
+- 인덱스가 많을수록 조회에는 좋다. (적정한 수는 유지해야한다)
+- 오버헤드는 발생할 수 있다. (write 시점에 Index의 B-tree 가공도 함께 해줘야한다)
+  - A에 인덱스 3개, B 인덱스 30개 있다고보자. insert 1건이 들어오면 A는 3개의 B-tree update, B는 30개의 B-tree update
+  - index block들이 디스크에 있으면 A는 3개의 I/O, B는 30개의 I/O -> 디스크의 부하 발생
+- 전체적으로 인덱스당 약 10%의 오버헤드가 있다
+- 인덱스 갱신 시점 : inserted, deleted, updated (적정한 수의 인덱스 유지가 필요)
+
+#### Index Limitations
+- index size가 너무 크지지않게 유의깊게 관찰 필요
+  - 인덱스가 커질수록 전체적인 캐시 성능이 떨어질 수 있음 
+
+-- 48분

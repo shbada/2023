@@ -38,7 +38,7 @@ single field, multi field, array field 등의 인덱스를 모두 지원함으�
 -- 47분
 
 ### CRUD Interactions
-![img.png](../image/day1-1/img.png)
+![img.png](../../image/day1-1/img.png)
 
 - 몽고DB는 collection이 없어도 insert 하면 새로 생성이 된다.
 - _id를 지정해서 넣지 않으면 자동생성된다. 
