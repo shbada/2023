@@ -114,3 +114,92 @@ eachcc
 ```
 - Prefix Compression으로 최적의 size를 유지하고자한다.
 
+
+-- 1시간 21분
+
+#### Compound Indexes
+- 2개 이상의 필드에 인덱스 (최대 32개까지 가능)
+- order and direction 중요
+
+```
+createIndex({country:1,state:1,city:1})
+find({country:"UK",city:"Glasgow"})
+```
+
+- 인덱스는 타지만 효율은 좋지않음
+- 아래와 같이 튜닝 필요
+```
+createIndex({country:1,city:1,state:1})
+```
+- 따라서 중요한건 순서
+  - Equality First
+  - Then Range or Sort
+    - Sort가 먼저 나옴으로써 Sort를 우회하는게 좋음 
+      - Equals, Range 범위가 상당히 크면 Sort 오버헤드가 심할 수 있다. -> 인덱스를 활용해서 equals, sort를 먼저 하고 range 수행하는 전략을 취하자.
+
+
+#### Index Covered Queries
+- index scan, index 가리키는 _id 기준으로 document 실제 가져옴(fetch) 작업을 거치는데,
+  이때 출력하고자하는 output이 index가 가지고있는 key에서 해결이 된다면 document까지 갈 필요가 없다.
+  이때 document 접근을 줄일 수 있다.
+- Don't forget to remove _id in the projection
+
+```
+MongoDB> use sample_airbnb //These numbers are obtained when the
+shell and server are in same region.
+
+MongoDB> function mkdata()
+{ db.listingsAndReviews.aggregate([{$set:{x: {$range:[0, 10]}}},
+{$unwind:"$x"},{$unset:"_id"},{$out:"big"}]).toArray()}
+
+MongoDB> f
+unction testidx() { start=ISODate() ; db.big.find({"address.countr
+y":{$gte:"Canada"}},{name:1,_id:0}).batchSize(60000).
+toArray() ; print(ISODate() - start + "ms")}
+
+MongoDB> db.big.drop();mkdata();c=40;while(c--){testidx()}
+
+// ~ 370-390 ms with no index, COLLSCAN of most of the DB
+MongoDB>
+db.big.drop();db.big.createIndex({"address.country":1}); mkdata();
+c=40;while(c--){testidx()}
+
+//~ 330-350 ms With an index on address.country
+MongoDB> db.big.drop() ;db.big.createIndex({"address.country":1, name:1});
+mkdata(); c=40;while(c--){testidx()}
+
+//~ 290-320 ms with a covering index
+MongoDB> db.big.drop() // IMPORTANT TO CLEAR UP THE SPACE
+```
+
+### Geospatial Indexing
+- 기본적으로 인덱스는 순서가 있어야한다.
+  - Locations - 동시에 2개가 같이 쓰인다면(West Or North와 같은) 어디가 앞이고 뒤인지 판별이 쉽지않다.
+  - Geohashes (좌표 데이터로 내부적으로 변환하여 B-Tree에 넣어서 indexing)
+  - Points / Lines / Circles / Polygons/ Groups of the above additive and subtractive
+
+- Coordinate spaces
+  - MongoDB can use Cartesian (2d) or Spherical Geometry (2dsphere)
+  - 2dsphere 위주로 사용한다고 생각하자. (2d는 거의 사용할일이 없다)
+```
+> use sample_weatherdata
+> db.data.createIndex({"position":"2dsphere"})
+> joburg = {
+"type" : "Point",
+"coordinates" : [ -26.2, 28.0 ]
+}
+> projection = {position:1,"airTemperature.value":1,_id:0}
+> //Distance in metres
+> db.data.find({ position: { $geoNear: { $geometry: joburg,
+$maxDistance: 100000}}}, projection)
+{ "position" : { "type" : "Point", "coordinates" : [ -26.1, 28.5 ]
+}, "airTemperature" : { "value" : 20.5 } }
+{ "position" : { "type" : "Point", "coordinates" : [ -26.8, 27.9 ]
+}, "airTemperature" : { "value" : 19 } }
+{ "position" : { "type" : "Point", "coordinates" : [ -26.9, 27.6 ]
+}, "airTemperature" : { "value" : 20 } }
+{ "position" : { "type" : "Point", "coordinates" : [ -27,
+27.5 ] }, "airTemperature" : { "value" : 20.3 } }
+```
+
+-- 1시간 57분

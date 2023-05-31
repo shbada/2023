@@ -123,3 +123,147 @@ number_of_reviews_1
 > db.player.find( { "last_moves.1" : [ 4, 5 ] } )
 ```
 - 이런 방식을 선호한다.
+
+
+#### Compound Index
+```
+> msgs = [
+{ "timestamp": 1, "username": "anonymous", "rating": 3},
+{ "timestamp": 2, "username": "anonymous", "rating": 5},
+{ "timestamp": 3, "username": "sam", "rating": 2 },
+{ "timestamp": 4, "username": "anonymous", "rating": 2},
+{ "timestamp": 5, "username": "martha", "rating" : 5 }
+]
+> db.messages.drop()
+> db.messages.insertMany(msgs)
+> //Index on timestamp
+> db.messages.createIndex({ timestamp : 1 })
+```
+- 조회 쿼리를 날린다.
+```
+> db.messages.find(
+    { timestamp : { $gte : 2, $lte : 4 } }
+).explain("executionStats")
+
+...
+    executionStats: {
+    executionSuccess: true,
+    nReturned: 3,
+    executionTimeMillis: 0,
+    totalKeysExamined: 3,
+    totalDocsExamined: 3,
+...
+```
+
+- Need to filter for anonymous
+```
+> db.messages.find(
+    { timestamp: { $gte : 2, $lte : 4 }, username: "anonymous" }
+).explain("executionStats")
+
+...
+nReturned: 2,
+executionTimeMillis: 0,
+totalKeysExamined: 3,
+totalDocsExamined: 3,
+
+> db.messages.dropIndex("timestamp_1")
+
+-- username까지 인덱스를 추가해보자.
+> db.messages.createIndex( { timestamp: 1, username: 1 })
+> db.messages.find(
+    { timestamp: { $gte : 2, $lte : 4 }, username: "anonymous" }
+).explain("executionStats")
+
+-- totalKeysExamined 가 증가했다.
+...
+nReturned: 2,
+executionTimeMillis: 0,
+totalKeysExamined: 4,
+totalDocsExamined: 2,
+```
+
+- timestamp, username 으로 인덱스를 걸어놓은 상태에서 아래와같이 데이터가 보인다.
+```
+Query: {timestamp:{$gte:2, $lte:4}, username:"anonymous"}
+Index: { timestamp: 1, username: 1 }
+```
+![img.png](../../image/day2/img_0.png)
+- 3,Sam 은 쓸데없이 읽혀졌다.
+
+- username, timestamp 순서로 바꿔보자.
+```
+Query: {timestamp:{$gte:2, $lte:4}, username:"anonymous"}
+Index: { username: 1, timestamp: 1 }
+```
+![img_1.png](../../image/day2/img_1.png)
+- 2건만 읽고 찾는다. equals이 range 보다 먼저오는게 더 효율적이다.
+
+- sort
+```
+> db.messages.find(
+    { timestamp: {$gte:2, $lte:4}, username:"anonymous"}
+).sort({rating:1}).explain("executionStats")
+
+...
+executionStats: {
+executionSuccess: true,
+nReturned: 2,
+executionTimeMillis: 0,
+totalKeysExamined: 4,
+totalDocsExamined: 2,
+executionStages: {
+stage: 'SORT',
+...
+```
+- sort 전의 결괏값이 크다면 sort 부하가 커진다.
+- equals, range, sort 순서
+```
+Query: {timestamp:{$gte:2, $lte:4}, username:"anonymous"} Sort: { rating: 1 }
+With Index: { username: 1, timestamp: 1 , rating:1 }
+```
+
+![img_2.png](../../image/day2/img_2.png)
+- 앞에서 5, 2 순이므로 sorting 이 발생해야한다. (2, 5)로 정렬해야하기 때문에 추가 정렬 발생
+
+- equals, sort, range 순서
+```
+Query: {timestamp:{$gte:2, $lte:4}, username:"anonymous"} Sort: { rating: 1 }
+With Index: { username: 1, rating: 1, timestamp: 1 }
+```
+![img_3.png](../../image/day2/img_3.png)
+- 2, 5가 이미 정렬된 상태이므로 추가적인 sorting 발생하지 않음
+
+- [결론]
+- Equality before range
+- Equality before sorting
+- Sorting before range
+
+
+#### MultiKey Compound Indexes
+```
+MongoDB > use test
+switched to db test
+
+-- a,b,c index
+MongoDB > db.multikey.createIndex({ a:1, b:1, c:1})
+a_1_b_1_c_1
+
+-- array 포함 (MultiKey)
+MongoDB > db.multikey.insertOne({a:"temps",b:[1,2,3],c:4})
+{
+acknowledged: true,
+insertedId: ObjectId("6114e952c8e5b75daaa54d33")
+}
+MongoDB > db.multikey.insertOne({a:"temps",b:2,c:[8,9,10]})
+{
+acknowledged: true,
+insertedId: ObjectId("6114e95ac8e5b75daaa54d34")
+}
+
+-- 동시에 2개가 array일땐 에러 발생 
+MongoDB> db.multikey.insertOne({a:"temps",b:[2,3],c:[8,9,10]})
+MongoServerError: cannot index parallel arrays [c] [b]
+```
+
+#### Index Covered Queries

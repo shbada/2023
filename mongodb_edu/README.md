@@ -9,3 +9,4 @@
 | day1.MongoDB 기본 개념과 CRUD (~3시간 15분) | 수강완료   | 2023/05/25 |
 | day2.MongoDB Index (~33분)           | 수강완료   | 2023/05/25 |
 | day2.MongoDB Index (~1시간 21분)       | 수강완료   | 2023/05/30 |
+| day2.MongoDB Index (~1시간 57분)       | 수강완료   | 2023/05/31 |
