@@ -203,3 +203,120 @@ $maxDistance: 100000}}}, projection)
 ```
 
 -- 1시간 57분
+
+#### Time To Live (TTL) Indexes
+```
+> db.t.drop()
+> db.t.insertOne({ create_date : new Date(),
+user: "bobbyg",session_key: "a95364727282",
+cart : [{ sku: "borksocks", quant: 2}]})
+> db.t.find()
+> //TTL set to auto delete where create_date > 1 minute old.
+> db.t.createIndex({"create_date": 1},{expireAfterSeconds: 60 })
+> for(x=0;x<10;x++) { print(db.t.count()) ; sleep(10000) }
+```
+- index를 생성했다가 지정한 시간만큼 유지되고, 시간이 지나면 자동으로 delete가 발생함 (documents 삭제)
+- 데이터 양이 많을때 DB쪽 부하 -> 데이터 생성주기가 있으면 그에 따라 시간을 설정해서 지우도록하면 됨 
+  - 만약 특정 패턴이 없다면 오버헤드는 생길 수 있음
+  - 가장 많이 사용되는 index
+
+####  Wildcard Indexes
+- 모든 인덱스를 수동으로 잡은 후, 그럼에도 안되는 경우에! 사용한다.
+- Compound Index의 대체는 아님 
+- 싱글 필드 인덱스로 수행
+  - 여러개의 조건이 들어가면 성능이 안좋아질 수 있다.
+```
+-- 모든 필드
+db.coll.createIndex({"$**":1})
+
+-- a 필드 있고, 그 밑에 b가 있고, 그 밑에 인덱스를 걸겠다  
+db.coll.createIndex({"a.b.$**":1})
+```
+
+#### hint
+- hint 대신? 
+  - indexFilterSet 속성을 지정해줘서, 어떤 index를 타야할지 몽고DB 단에서 지정해줄 수는 있다.
+
+#### Foreground Index (MongoDB Pre 4.2)
+- lock을 잡고 collection 레벨의 lock을 잡고 빠른 빌드가 됨. DML은 막힘 (block), 서비스 단절 발생
+
+#### Background Index (MongoDB Pre 4.2)
+- 인덱스 빌드 시점과 빌드 끝나는 시점에 잠깐 lock 을 작게 잡음
+- lock 을 잡았다 풀었다하는 과정을 계속 반복해서 index 빌드 성능 자체는 foreground 보다 안좋음
+
+#### Hybrid Index (MongoDB 4.2+)
+- 4.2 버전이후부터는 이거임
+- 인덱스를 걸게되면 자동으로 lock을 안잡고, background 처럼 lock을 잡고 이것보다 성능을 더 개선함
+- 서비스 중에 인덱스를 만들어도됨 
+
+#### Rolling build
+- primary Set, secondary set, secondary set 구조일 경우 
+- Replica Set 에서 secondary를 하나 떼어내서 인덱스를 빌드 (아무도 접근하지 않음)
+  - 기존에 primary Set, secondary set이 수행중
+  - 인덱스 빌드 완료하면 다시 붙임 : replication을 통해서 그동안 받지못한 데이터들을 동기화 수행
+  - 그리고 다른 secondary도 위 순서대로 빌드-동기화 수행
+  - primary는 인덱스가 없으므로 step-down함, 나머지 secondary 중에서 primary로 승격함
+  - 이 타이밍에 어플리케이션은 잠깐 끊어졌다 붙음 : 끊어졌다 붙는게 내부적으로 retry 수행해서 Exception이 발생하는건 아님
+  - 이런식으로 무중단으로 인덱스를 빌드함 
+
+#### Hidden Index
+- index를 hidden으로 바꿔서 옵티마이저가 index가 없는것처럼함 (태우지 않음)
+- 주로 index drop 전에 사용 
+
+#### BSON
+- MongoDB stores data as Binary JSON (BSON)
+  - 사용자에게는 BSON -> JSON 전환해서 보여주는것 
+- BSON provides support for all JSON data types and several others
+- BSON was designed to be lightweight, traversable and efficient
+![img.png](../../image/day2/img_4.png)
+
+
+#### _id field
+- 모든 도큐먼트에서 unique한 값 
+- _id를 통해서 데이터를 수정하거나 등 수행한다.
+- array 일 수 없고 immutable 하다. (한번 등록 후 업데이트 불가능, 업데이트 하려면 delete-insert)
+- default object id
+  - 4 byte value + 5 byte random value + 3 byte counter 
+![img_1.png](../../image/day2/img_5.png)
+```
+var oid = ObjectId()
+oid.getTimestamps() (앞의 4바이트로 날짜 출력 가능)
+```
+- MongoDB 3.4 부터 128-bit decimal 제공 
+
+#### Null Handling
+- null 을 값으로 봄 (null is a BSON type)
+
+#### Sorting by Arrays
+- 각각의 element를 key 로 B-tree에 들어간다. 이는 ordering 되었음을 뜻한다.
+- 
+```
+> db.sortdemo.drop()
+>
+var docs = [ { x : [ 1, 11 ] }, { x : [ 2, 10 ] }, { x : [ 3 ] },{
+x : [ 4 ] }, { x : [ 5 ] } ]
+> db.sortdemo.insertMany(docs)
+> db.sortdemo.createIndex( { x : 1 } )
+x_1
+// x : [ 1, 11 ] array comes first. It contains the lowest value.
+> db.sortdemo.find().sort( { x : 1 } )
+// x : [ 1, 11 ] array still comes first. Contains the highest value.
+> db.sortdemo.find().sort( { x : -1 } )
+```
+
+#### Locking
+- 동일한 레코드를 바라보고 DML을 날리면 웨이팅 발생 
+- document 레벨에서 locking 을 제공 (atomic - 원자성, 처리가 되던지, 처리가 안되던지를 유지)
+
+#### Optimistic Locking
+- Pessimistic 비관적 잠금 : 어떤 변경하고자하면 document를 다른 트랜잭션에서도 변경할 수 있다고 가정하고, 먼저 lock을 잡으려고 시도
+- Optimistic 낙관적 잠금 : 다른 트랜잭션이 변경할 수 있다고 가정하지 않고 (낙관적) 작업 수행하고, 충돌이 발생하면 retry한다 
+  - MongoDB는 낙관적 락을 채택함 
+  - 그래서 몇번을 기다렸다 라는 수치가 나옴(retry 횟수) : 실제적인 구현 방식 
+
+#### MongoDB Relationship
+- 모델링 전에 미리 데이터 패턴을 보고 미리 access 패턴을 정해야한다.
+- 패턴이 어느정도 고려가 됬으면, Referencing 한다. (FK로 연결관계)
+  - Referencing, Embedding
+![img.png](../../image/day2/img_6.png)
+
