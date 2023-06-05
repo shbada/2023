@@ -103,3 +103,42 @@ db.tweets.aggregate([
 - Result
 ![img_2.png](img_2.png)
 
+## Example2
+#### 실습
+> Twitter 사용자당 하나의 문서가 있음
+> 트윗을 100회 이상 한 'Brasilia' 시간대 이용자 중 팔로워가 가장 많은 사람은 누구인가.
+> 각 트윗의 사용자 개체의 time_zone 필드에 표준 시간대가 있음
+> 각 사용자의 트윗 수가 user.status_count 필드에 있음
+
+```
+use('sample_training');
+
+db.tweets.aggregate([
+    {
+        $match: {
+            "user.time_zone" : "Brasilia",
+            "user.statuses_count" : { $gte : 100 } // 이상
+        }
+    },
+    {
+        $project: {
+            "followers" : "$user.followers_count",
+            "tweets" : "$user.statuses_count",
+            "screen_name" : "$user.screen_name"
+        }
+    },
+    {
+        $sort: {
+            // 역순 정렬
+            followers: -1
+        }
+    },
+    {
+        $limit : 1
+    }
+])
+```
+
+- Result
+![img_3.png](img_3.png)
+
