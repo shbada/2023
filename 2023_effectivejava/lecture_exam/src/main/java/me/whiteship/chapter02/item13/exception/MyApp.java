@@ -19,7 +19,7 @@ public class MyApp {
         MyApp myApp = new MyApp();
         try {
             myApp.hello("푸틴");
-        } catch (MyException e) {
+        } catch (MyException e) { // CheckedException 은 번거롭다.
             e.printStackTrace();
         }
     }

@@ -36,7 +36,22 @@ public class Stack implements Cloneable {
     @Override public Stack clone() {
         try {
             Stack result = (Stack) super.clone();
-            result.elements = elements.clone();
+            /*
+            호출 안하면?
+            다른 두 인스턴스 stack, copy -> 동일한 elements 를 참조하게된다.
+            다른 두 인스턴스에서 동일한 배열을 쓰게됨
+
+            elements.clone()을 해서 배열을 복사해야 복사본, 원본 인스턴스가 각각의 elements를 가지게된다.
+
+            (얕은복사)
+            stack -> elementsS[0, 1]
+            copy -> elementsC[0, 1]
+
+            // 배열만 새로 만들고. 안에 있는 인스턴스들은 동일하게 참조한다. (여전히 위험하긴한다.)
+            elementsS[0] == elementsC[0]
+             */
+//           result.elements = elements.clone();
+
             return result;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
@@ -55,10 +70,12 @@ public class Stack implements Cloneable {
         values[0] = new PhoneNumber(123, 456, 7890);
         values[1] = new PhoneNumber(321, 764, 2341);
 
+        // 원본
         Stack stack = new Stack();
         for (Object arg : values)
             stack.push(arg);
 
+        // 복사본
         Stack copy = stack.clone();
 
         System.out.println("pop from stack");
