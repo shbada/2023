@@ -10,6 +10,11 @@ public class CompareToConvention {
         BigDecimal n3 = BigDecimal.valueOf(53534552);
         BigDecimal n4 = BigDecimal.valueOf(11231230);
 
+        /**
+         * 내 자신이 넘겨받은 값보다 크다면 양수
+         * 내 자신이 넘겨받은 값과 같다면 0
+         * 내 자신이 넘겨받은 값보다 작다면 음수
+         */
         // p88, 반사성
         System.out.println(n1.compareTo(n1));
 
@@ -30,7 +35,7 @@ public class CompareToConvention {
         // p89, compareTo가 0이라면 equals는 true여야 한다. (아닐 수도 있고..)
         BigDecimal oneZero = new BigDecimal("1.0");
         BigDecimal oneZeroZero = new BigDecimal("1.00");
-        System.out.println(oneZero.compareTo(oneZeroZero)); // Tree, TreeMap
-        System.out.println(oneZero.equals(oneZeroZero)); // 순서가 없는 콜렉션
+        System.out.println(oneZero.compareTo(oneZeroZero)); // 0 / Tree, TreeMap
+        System.out.println(oneZero.equals(oneZeroZero)); // false / 순서가 없는 콜렉션
     }
 }

@@ -1,5 +1,8 @@
 package me.whiteship.chapter02.item14.composition;
 
+/**
+ * 상속이 아닌 컴포지션 방법!
+ */
 public class NamedPoint implements Comparable<NamedPoint> {
 
     private final Point point;

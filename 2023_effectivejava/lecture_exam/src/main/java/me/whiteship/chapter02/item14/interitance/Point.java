@@ -19,6 +19,7 @@ public class Point implements Comparable<Point>{
 
     @Override
     public int compareTo(Point point) {
+        // x가 정렬 우선
         int result = Integer.compare(this.x, point.x);
         if (result == 0) {
             result = Integer.compare(this.y, point.y);
