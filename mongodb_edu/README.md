@@ -14,3 +14,5 @@
 | day3.MongoDB Aggregation (~1분)      | 수강완료   | 2023/06/01 |
 | day3.MongoDB Aggregation (~1시간 4분)  | 수강완료   | 2023/06/05 |
 | day3.MongoDB Aggregation (~1시간 25분) | 수강완료   | 2023/06/06 |
+| day3.MongoDB Aggregation (~1시간 45분) | 수강완료   | 2023/06/08 |
+| day4.Replication (~20분)             | 수강완료   | 2023/06/08 |
