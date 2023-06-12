@@ -17,6 +17,7 @@
 | 11 | [더 자바, 애플리케이션을 테스트하는 다양한 방법](https://github.com/seohaebada/2023/tree/main/theJavaTestJunit)  | 프로젝트 테스트 공부  | <img width="550" alt="image" src="https://github.com/seohaebada/2023/assets/87924260/ba7cd7c0-2b7d-476b-8b5d-70500e76ae41"> |
 | 12 | [스프링 가이드 타임어택](https://github.com/seohaebada/2023/tree/main/toby_youtube)  | Toby의 Spring 강의 공부 및 실습  | <img width="550" alt="image" src="https://github.com/seohaebada/2023/assets/87924260/d0083b02-723d-4610-9caf-1d6568371180"> |
 | 13 | [몽고DB 교육 (day1 ~ day 6)](https://github.com/seohaebada/2023/tree/main/mongodb_edu)  | 몽고DB 사내 실습 교육 (day 6)  | <img width="550" alt="image" src="https://github.com/seohaebada/2023/assets/87924260/b81d58ce-19da-4d91-b0ef-a4956b33a9f8"> |
+| 14 | [고성능 서비스를 위한 Redis 활용 및 아키텍처](https://github.com/seohaebada/2023/tree/main/redis)  | Redis 개념 및 실습 공부하여 경험해보기  | <img width="600" alt="image" src="https://github.com/seohaebada/2023/assets/87924260/60671663-7f8c-4b42-8cb4-d9f3a8197e7c"> |
 
 
 
