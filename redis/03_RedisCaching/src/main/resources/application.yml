@@ -1,0 +1,7 @@
+
+spring:
+  cache:
+    type: redis # redis 사용을 알림
+  redis:
+    host: localhost
+    port: 6379
