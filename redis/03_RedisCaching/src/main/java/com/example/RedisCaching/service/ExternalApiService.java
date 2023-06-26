@@ -15,10 +15,11 @@ public class ExternalApiService {
 
         System.out.println("Getting user name from other service..");
 
-        if(userId.equals("A")) {
+        if (userId.equals("A")) {
             return "Adam";
         }
-        if(userId.equals("B")) {
+
+        if (userId.equals("B")) {
             return "Bob";
         }
 

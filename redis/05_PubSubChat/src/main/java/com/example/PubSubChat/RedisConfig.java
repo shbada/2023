@@ -11,6 +11,7 @@ public class RedisConfig {
 
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
+        // Redis 연결 팩토리를 생성하고 반환
         return new LettuceConnectionFactory();
     }
 
@@ -21,6 +22,7 @@ public class RedisConfig {
      */
     @Bean
     RedisMessageListenerContainer redisContainer() {
+        // RedisMessageListenerContainer 객체를 생성
         final RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(redisConnectionFactory());
         return container;
