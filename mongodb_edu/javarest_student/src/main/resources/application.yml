@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: develop
+---
+spring:
+  config:
+    activated:
+      on-profile: develop
+  data:
+    mongodb:
+      uri: "mongodb://localhost:27017/test"
+      database: test
+---
+logging:
+  level:
+    root: error
+    sun.rmi: error
+    org.mongodb: info
+    springfox.documentation: info
+    org.springframework: info
+    org.mongodb.javarest: debug
+    com.zaxxer.hikari: off
+  pattern:
+    console: "%d{HH:mm:ss.SSS} - %msg%n"
