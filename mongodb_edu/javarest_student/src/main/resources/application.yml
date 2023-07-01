@@ -18,7 +18,7 @@ logging:
     org.mongodb: info
     springfox.documentation: info
     org.springframework: info
-    org.mongodb.javarest: debug
+    org.mongodb.java-rest: debug
     com.zaxxer.hikari: off
   pattern:
     console: "%d{HH:mm:ss.SSS} - %msg%n"

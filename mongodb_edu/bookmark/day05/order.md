@@ -4,4 +4,4 @@
 - 실습 : 53 분 ~ 1시간 22분
 
 ## DA610 - Advanced Queries and Data Processing
-- 1시간 22분 ~ 
+- 1시간 23분 ~ 2시간 52분

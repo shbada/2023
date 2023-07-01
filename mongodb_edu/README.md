@@ -22,3 +22,5 @@
 | day4.Replication (3시간 26분)            | 수강완료   | 2023/07/01 |
 | day5.Java Development Guide (53분)     | 수강완료   | 2023/07/01 |
 | day5.Java Development Guide (1시간 22분) | 수강완료   | 2023/07/01 |
+| day5.Java Development Guide (2시간 52분) | 수강완료   | 2023/07/01 |
+| day6.Application Optimization         | 수강완료   | 2023/07/01 |
