@@ -4,5 +4,6 @@
 ## LDF01 - 09 - 2 Zero-Downtime Maintenance
 - 1시간 47분 ~ 2시간 7분
 ## LDF01 - 09 - 3 Basic Backup Options
-- 2시간 7분 ~
+- 2시간 7분 ~ 2시간 25분
 ## LDF01 - 10 - Sharding Basic
+- 2시간 26분 ~ 3시간 26분
