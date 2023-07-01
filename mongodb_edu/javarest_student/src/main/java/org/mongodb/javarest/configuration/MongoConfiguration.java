@@ -28,6 +28,10 @@ public class MongoConfiguration {
     @Autowired
     public MongoDatabaseFactory mongoDatabaseFactory;
 
+    /**
+     * MongoDB 트랜잭션
+     * @return
+     */
     @Bean
     public MongoTransactionManager transactionManager() {
         return new MongoTransactionManager(mongoDatabaseFactory);
@@ -54,6 +58,10 @@ public class MongoConfiguration {
         return env.getProperty("spring.data.mongodb.database");
     }
 
+    /**
+     * MongoDB 연결정보
+     * @return
+     */
     @Bean
     public MongoClient mongoClient() {
         ConnectionString connectionString = new ConnectionString(

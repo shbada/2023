@@ -38,6 +38,11 @@ public class StandardController {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    /**
+     * 등록 API
+     * @param bodyDoc
+     * @return
+     */
     @RequestMapping(value = "/api/v1/product/register",
             consumes = "application/json",
             produces = "application/json",
@@ -108,6 +113,13 @@ public class StandardController {
         return responseEntity;
     }
 
+    /**
+     * 태그 저장 API
+     * @param name
+     * @param type
+     * @param tags
+     * @return
+     */
     @RequestMapping(value = "/api/v1/product/tagput", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity<String> putTagProduct(
@@ -136,6 +148,14 @@ public class StandardController {
 
     }
 
+    /**
+     * 리뷰 등록 API
+     * @param name
+     * @param type
+     * @param userid
+     * @param comment
+     * @return
+     */
     @RequestMapping(value = "/api/v1/product/reviewput", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity<String> putReviewProduct(
@@ -148,7 +168,7 @@ public class StandardController {
 
         try {
 
-            Review review = new Review(name,type,userid,comment,new Date());
+            Review review = new Review(name, type, userid, comment, new Date());
             reviewRepository.save(review);
 
             /*
@@ -178,6 +198,12 @@ public class StandardController {
 
     }
 
+    /**
+     * name이 등록한 리뷰 조회 API
+     * @param name
+     * @param type
+     * @return
+     */
     @RequestMapping(value = "/api/v1/product/review/getbynametype", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<Product> getReviewByNameAndType(

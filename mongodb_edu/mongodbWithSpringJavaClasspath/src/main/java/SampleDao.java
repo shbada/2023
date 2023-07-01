@@ -13,6 +13,9 @@ import static com.mongodb.client.model.Filters.eq;
 @Repository
 public class SampleDao {
 
+    /**
+     * SpringWebConfig.java 에서 설정한 Bean 사용
+     */
     @Autowired
     MongoClient mongoClient;
 

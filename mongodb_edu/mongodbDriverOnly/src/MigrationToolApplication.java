@@ -53,6 +53,7 @@ public class MigrationToolApplication {
 
             HashMap buffer = null;
 
+            /* MongoDB */
             MongoDatabase mongoDatabase = mongoClient.getDatabase("ccs");
             MongoCollection mongoCollection = mongoDatabase.getCollection("profile");
 
@@ -105,6 +106,9 @@ public class MigrationToolApplication {
 
     }
 
+    /**
+     * MongoDB 연결정보
+     */
     public static void batchInit(){
 
         // ---------------------------------------------------------------------
