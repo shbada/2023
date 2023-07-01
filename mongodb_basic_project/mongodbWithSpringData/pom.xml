@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com</groupId>
-    <artifactId>mongodbWithSPringData</artifactId>
+    <artifactId>mongodbWithSpringData</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mongodbWithSPringData</name>
     <description>mongodbWithSPringData</description>
