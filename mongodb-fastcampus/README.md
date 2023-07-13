@@ -11,4 +11,12 @@
 | 04. MongoDB 배포 형태 소개                           | 수강완료   | 2023/07/11 |
 | 05. Replica Set                                | 수강완료   | 2023/07/11 |
 | 06. Sharded Cluster                            | 수강완료   | 2023/07/11 |
-| 07. Replica Set vs Sharded Cluster 어떻게 배포할 것인가 | 수강완료   | 2023/07/11 |
+| 07. Replica Set vs Sharded Cluster 어떻게 배포할 것인가 | 수강완료   | 2023/07/13 |
+| 08. MongoDB Storage Engines                    | 수강완료   | 2023/07/13 |
+| Ch 02. MongoDB Atlas 소개 및 실습 환경 세팅             | -      | -          |
+| 01. MongoDB Atlas 소개 및 환경 구축                   | 수강완료   | 2023/07/13 |
+| 02. Replica Set 직접 구축                          | 수강완료   | 2023/07/13 |
+| 03. Sharded Cluster 직접 구축                      | 수강완료   | 2023/07/13 |
+| 04. MongoDB에 연결하는 방식 소개                        | 수강완료   | 2023/07/13 |
+| 05. MongoDB의 다양한 Client 소개                     | 수강완료   | 2023/07/13 |
+| Ch 04. 읽기와 쓰기에 대한 제어                           | -      | -          |
