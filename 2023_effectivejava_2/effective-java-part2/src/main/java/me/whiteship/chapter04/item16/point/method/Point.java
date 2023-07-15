@@ -1,7 +1,7 @@
 package me.whiteship.chapter04.item16.point.method;
 
 // 코드 16-2 접근자와 변경자(mutator) 메서드를 활용해 데이터를 캡슐화한다. (102쪽)
-class Point {
+class Point { // default 일땐 public 필드여도 됨, public 일땐 public 필드면 안됨
     private double x;
     private double y;
 

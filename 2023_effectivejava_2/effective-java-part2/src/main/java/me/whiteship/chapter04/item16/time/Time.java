@@ -5,6 +5,7 @@ public final class Time {
     private static final int HOURS_PER_DAY    = 24;
     private static final int MINUTES_PER_HOUR = 60;
 
+    // public 필드, final 이다. (단점이 줄어드는것일 뿐, 그 외 public 필드의 단점은 그대로 존재)
     public final int hour;
     public final int minute;
 
