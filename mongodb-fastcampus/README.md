@@ -23,3 +23,7 @@
 | 01. MongoDB의 일관성 제어 소개                         | 수강완료   | 2023/07/16 |
 | 02. Read Preference                            | 수강완료   | 2023/07/16 |
 | 03. Read_Write Concern-1(이론)                   | 수강완료   | 2023/07/16 |
+| 03. Read_Write Concern-2(실습)                   | 수강완료   | 2023/07/17 |
+| 04. Causal Consistency                         | 수강완료   | 2023/07/17 |
+| 05. MongoDB의 Transaction                       | 수강완료   | 2023/07/17 |
+| Ch 05. MongoDB의 다양한 Index                      | -      | -          |
