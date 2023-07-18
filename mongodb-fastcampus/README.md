@@ -27,3 +27,4 @@
 | 04. Causal Consistency                         | 수강완료   | 2023/07/17 |
 | 05. MongoDB의 Transaction                       | 수강완료   | 2023/07/17 |
 | Ch 05. MongoDB의 다양한 Index                      | -      | -          |
+| 01. MongoDB의 Index 기본 구조와 효율적인 탐색              | 수강완료   | 2023/07/18 |
