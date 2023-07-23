@@ -17,6 +17,9 @@ public final class Complex {
     public double realPart()      { return re; }
     public double imaginaryPart() { return im; }
 
+    /*
+    모든 메서드들이 새로운 인스턴스를 생성한다.
+     */
     public Complex plus(Complex c) {
         return new Complex(re + c.re, im + c.im);
     }

@@ -29,6 +29,7 @@ public final class PhoneNumber {
                 && pn.areaCode == areaCode;
     }
 
+    // 계산비용이 큰 값은 해당 값이 필요로할때(나중에) 계산하여 final이 아닌 필드에 캐시해서 쓸수도 있다.
     // 해시코드를 지연 초기화하는 hashCode 메서드 - 스레드 안정성까지 고려해야 한다. (71쪽)
     private volatile int hashCode; // 자동으로 0으로 초기화된다.
 
@@ -39,7 +40,7 @@ public final class PhoneNumber {
 
         synchronized (this) {
             int result = hashCode;
-            if (result == 0) {
+            if (result == 0) { // 계산해도 같은값이 나올테니까
                 result = Short.hashCode(areaCode);
                 result = 31 * result + Short.hashCode(prefix);
                 result = 31 * result + Short.hashCode(lineNum);

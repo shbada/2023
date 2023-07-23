@@ -9,11 +9,17 @@ public class Complex {
     public static final Complex ONE  = new Complex(1, 0);
     public static final Complex I    = new Complex(0, 1);
 
+    /**
+     * private 생성자
+     * @param re
+     * @param im
+     */
     private Complex(double re, double im) {
         this.re = re;
         this.im = im;
     }
 
+    // 내부에서만 하위클래스 생성 가능
     private static class MyComplex extends Complex {
 
         private MyComplex(double re, double im) {
@@ -29,6 +35,7 @@ public class Complex {
     }
 
     // 코드 17-2 정적 팩터리(private 생성자와 함께 사용해야 한다.) (110-111쪽)
+    // 매개변수가 자주쓰이는 값이라면 캐싱도 가능
     public static Complex valueOf(double re, double im) {
         return new MyComplex(re, im);
     }
