@@ -12,20 +12,14 @@ import java.util.concurrent.CountDownLatch;
  * - 재사용할 수 있는 인스턴스가 아니다. 숫자를 리셋해서 재사용하려면 CyclicBarrier를 사용해야한다.
  * - 시작/종료 신호를 사용할 수 있다.
  */
-public class ConcurrentExample {
+public class ConcurrentExample2 {
     public static void main(String[] args) throws InterruptedException {
         int N = 10;
-        CountDownLatch startSignal = new CountDownLatch(1);
-        CountDownLatch doneSignal = new CountDownLatch(N);
 
         for (int i = 0; i < N; ++i) // create and start threads
-            new Thread(new Worker(startSignal, doneSignal)).start();
+            new Thread(new Worker()).start();
 
         ready();            // don't let run yet
-        // 모든 스레드가 작업을 시작
-        startSignal.countDown();      // let all threads proceed
-        // 모든 스레드가 작업을 완료할 때까지 대기
-        doneSignal.await();           // wait for all to finish
         done();
     }
 
@@ -39,22 +33,11 @@ public class ConcurrentExample {
 
     private static class Worker implements Runnable {
 
-        private final CountDownLatch startSignal;
-        private final CountDownLatch doneSignal;
-
-        public Worker(CountDownLatch startSignal, CountDownLatch doneSignal) {
-            this.startSignal = startSignal;
-            this.doneSignal = doneSignal;
+        public Worker() {
         }
 
         public void run() {
-            try {
-                // 스레드를 시작하기 전에 대기
-                startSignal.await();
-                doWork();
-                // 해당 스레드의 작업이 완료되었음을 알림
-                doneSignal.countDown();
-            } catch (InterruptedException ex) {} // return;
+            doWork();
         }
 
         void doWork() {
