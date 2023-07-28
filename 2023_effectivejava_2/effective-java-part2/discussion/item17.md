@@ -150,3 +150,5 @@ working thread: Thread-8
 끝!
 working thread: Thread-9
 ```
+
+위 실행결과는 실행할때마다 다르게 나온다.
