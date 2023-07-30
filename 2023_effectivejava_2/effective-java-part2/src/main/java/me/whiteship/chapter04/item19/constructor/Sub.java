@@ -8,6 +8,11 @@ public final class Sub extends Super {
     private final Instant instant;
 
     Sub() {
+        // [해당 코드의 문제점]
+        // 기본적으로 상위클래스의 생성자를 호출하고있음 (Super();)
+        // 부모클래스 생성자안에서 호출하는 재정의 가능한 overrideMe()가 그래서 먼저 호출되는데,
+        // 이때는 instant에 now()가 들어가기 전이므로 null이다.
+        // 그 이후부터 instant가 제대로 값이 출력된다.
         instant = Instant.now();
     }
 
