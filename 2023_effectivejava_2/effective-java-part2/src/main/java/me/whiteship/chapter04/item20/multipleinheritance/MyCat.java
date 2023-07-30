@@ -21,6 +21,9 @@ public class MyCat extends AbstractCat implements Flyable {
         myCat.fly();
     }
 
+    /**
+     * 추상클래스 MyFlyable 를 활용한다.
+     */
     @Override
     public void fly() {
         this.myFlyable.fly();

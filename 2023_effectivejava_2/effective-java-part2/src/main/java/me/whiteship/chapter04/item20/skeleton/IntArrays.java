@@ -10,10 +10,12 @@ public class IntArrays {
     static List<Integer> intArrayAsList(int[] a) {
         Objects.requireNonNull(a);
 
+//        return new List<>() // 엄청 구현해야할 메서드가 많음
+
         // 다이아몬드 연산자를 이렇게 사용하는 건 자바 9부터 가능하다.
         // 더 낮은 버전을 사용한다면 <Integer>로 수정하자.
         return new AbstractList<>() {
-            @Override public Integer get(int i) {
+            @Override public Integer get(int  i) {
                 return a[i];  // 오토박싱(아이템 6)
             }
 
