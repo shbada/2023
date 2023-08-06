@@ -5,6 +5,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * 어댑터 패턴
+ * - 기존 코드를 클라이언트가 사용하는 인터페이스의 구현체로 바꿔주는 패턴
+ */
 // 코드 20-1 골격 구현을 사용해 완성한 구체 클래스 (133쪽)
 public class IntArrays {
     static List<Integer> intArrayAsList(int[] a) {

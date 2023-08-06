@@ -1,6 +1,7 @@
 package me.whiteship.chapter04.item22.constantinterface;
 
 // 코드 22-1 상수 인터페이스 안티패턴 - 사용금지! (139쪽)
+// 인터페이스는 implmenets 를 막을 수 없다.
 public interface PhysicalConstants {
     // 아보가드로 수 (1/몰)
     static final double AVOGADROS_NUMBER   = 6.022_140_857e23;
