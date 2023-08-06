@@ -56,4 +56,9 @@ public class FailFast {
         // 출력
         numbers.forEach(System.out::println);
     }
+
+
+    public void example(List<String> words) {
+        words.forEach(word -> System.out.println(word));
+    }
 }
