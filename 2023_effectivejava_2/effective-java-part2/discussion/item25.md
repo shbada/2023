@@ -11,20 +11,7 @@ javac Main.java Dessert.java
 - 컴파일 오류 발생  
 컴파일러는 가장 먼저 Main.java를 컴파일하고, 그 안에서 Utensil 참조가 먼저 나오므로, Utemsil.java 파일을 살펴 Utensil, Dessert 모두 찾아낼 것이다. 
 그런 다음 Dessert.java 를 처리하려고 할때 같은 클래스의 정의가 있음을 알게된다.
-
-- 컴파일 결과
-```java
-package me.whiteship.chapter04.item25;
-
-public class Main {
-    public Main() {
-    }
-
-    public static void main(String[] var0) {
-        System.out.println("potpie");
-    }
-}
-```
+> 이렇게 Utensil파일에 있는 똑같은 클래스를 중복 정의했을때 컴파일러의 동작 결과가 달라지므로 문제가 발생한다.
 
 2) Main + Utensil
 ```
